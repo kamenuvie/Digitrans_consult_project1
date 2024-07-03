@@ -70,6 +70,7 @@ header{
     display: flex;
     gap: 1rem;
     font-size: 20px;
+    
 
 }
 .navbar ul {
@@ -77,7 +78,7 @@ header{
     align-items: center;
     justify-content: space-between;
     font-size: 20px;
-
+    margin-left: 20%;
 }
 .navbar .toggle-btn {
    color: rgb(14, 14, 187); 
@@ -762,8 +763,13 @@ header{
   
 }
 
+.title-text2 h2 {
+    color: white;
+}
+
 .title-text1 p{
 margin-left: 10%;
+color: white;
 }
 
 .title-text2 p{
@@ -884,7 +890,4 @@ button {
     background-size: 100%;
     background-repeat: no-repeat;
 }
-
-/*---------------------------------Login-----------------------------------*/
-
 
