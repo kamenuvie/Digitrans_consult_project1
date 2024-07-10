@@ -873,8 +873,10 @@ justify-content: space-around;
 }
 label, input, textarea, button {
     margin-bottom: 20px;
+    margin-right: 50px;
     border-radius: 5px;
-    width: 140%;
+    padding-left: 0px;
+    width: 120%;
     height: 7%;
 }
 button {
