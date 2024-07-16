@@ -783,7 +783,7 @@ color: white;
 .page h1{
     font-size: 4rem;
     font-weight: bold;
-    color: #1b2c8d;
+    color: #b1b7d6;
     align-items: center;
     justify-content: center;
     margin-left: 40%;
@@ -854,7 +854,7 @@ color: white;
 
 }
 .admission-form{
-    width: 60%;
+    width: 70%;
     height: 50%;
     align-items: center;
     justify-content: center;
@@ -863,7 +863,7 @@ color: white;
     margin-left: 350px;
     flex-direction: 'row';
     background-image: url(./asserts/form.jpg);
-    background-size: 265%;
+    background-size: 200%;
     background-repeat: no-repeat;
 }
 .admission-form .form-data {
