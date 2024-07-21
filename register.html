@@ -77,75 +77,86 @@
                         <h3 style="padding-left: 320px;">Admission Form</h3>
                         <p style="padding-left: 3px;    color: rgb(20, 20, 20);">Please fill out this form carefully and ensure all required fields are completed.</p>
                     </div>
-                    <form class="form-data"action ="forms.php" methods ="POST" >
-                       <div class="side1">
-                        <label for="fname">First Name:</label><br>
-                        <input type="text" id="fname" name="fname" required><br>
+                    <form id="admissionForm" class="form-data" action="forms.php" method="POST">
+                        <div class="side1">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" name="firstName" required>
+    
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" name="lastName" required>
+    
+                            <label for="dateOfBirth">Date of Birth:</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+    
+                            <label for="gender">Gender:</label><br>
+                            <select id="gender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select><br>
+    
+                            <label for="nationality">Nationality:</label>
+                            <input type="text" id="nationality" name="nationality" required>
+    
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+    
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" name="phone" required>
+    
+                            <label for="address">Address:</label>
+                            <input type="text" id="address" name="address" required>
+    
+                           
+                        </div>
+                        <div class="side2">
+                            <label for="formerSchool">Former School:</label>
+                            <input type="text" id="formerSchool" name="formerSchool" required>
+    
+                            <label for="healthInformation">Health Information:</label>
+                            <textarea style="height: 100px;"  id="healthInformation" name="healthInformation" rows="4" cols="30" required></textarea>
+    
+                            <label for="parentName">Parent's Name:</label>
+                            <input type="text" id="parentName" name="parentName" required>
+    
+                            <label for="parentEmail">Parent's Email:</label>
+                            <input type="email" id="parentEmail" name="parentEmail" required>
 
-                        <label for="lname">Last Name:</label><br>
-                        <input type="text" id="lname" name="lname" required><br>
-
-                        <label for="dob">Date of Birth:</label><br>
-                        <input type="date" id="dob" name="dob" required><br>
-
-                        <label for="gender">Gender:</label><br>
-                        <select id="gender" name="gender" required>
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                          <option value="other">Other</option>
-                        </select><br>
-
-                        <label for="nationality">Nationality:</label><br>
-                        <input type="text" id="nationality" name="nationality" required><br>
-
-                        <label for="email">Email:</label><br>
-                        <input type="email" id="email" name="email" required><br>
-
-                        <label for="phone">Phone:</label><br>
-                        <input type="tel" id="phone" name="phone" pattern="+233-00-000-0000" required><br>
-
-                        <label for="address">Address:</label><br>
-                        <input type="text" id="address" name="address" required><br>
-
-                        <label for="parent-name">Parent's Name:</label><br>
-                        <input type="text" id="parent-name" name="parent-name" required><br>
-
-                        <label for="parent-email">Parent's Email:</label><br>
-                        <input type="email" id="parent-email" name="parent-email" required><br>
-
-
-
-                       </div> 
-                       <div class="side2">
-                        <label for="former-school">Former School:</label><br>
-                        <input type="text" id="former-school" name="former-school" required><br>
-
-                        <label for="health-info">Health Information:</label><br>
-                        <textarea id="health-info" name="health-info" rows="4" cols="30" required></textarea><br>
-
-                        <label for="registration-fee">Registration Fee:</label><br>
-                        <input type="number" id="registration-fee" name="registration-fee" required><br>
-
-                        <label for="entrance-exam-date">Entrance Exam Date:</label><br>
-                        <input type="date" id="entrance-exam-date" name="entrance-exam-date" required><br>
-
-                        <label for="entrance-exam-time">Entrance Exam Time:</label><br>
-                        <input type="time" id="entrance-exam-time" name="entrance-exam-time" required><br>
-
-                        <label for="entrance-exam-venue">Entrance Exam Venue:</label><br>
-                        <input type="text" id="entrance-exam-venue" name="entrance-exam-venue" required><br> 
-
-                        
-                        
-
-
-                         <button type="submit">Submit Application</button>
-
-
-                       </div>
-
-                       
-                    </form> <br><br>
+                            <label for="entranceExamTime">Entrance Exam Time:</label>
+                            <input type="time" id="entranceExamTime" name="entranceExamTime" required>
+    
+                            <label for="entranceExamVenue">Entrance Exam Venue:</label>
+                            <input type="text" id="entranceExamVenue" name="entranceExamVenue" required>
+    
+                            <button type="submit">Submit Application</button>
+                        </div>
+                    </form>
+    
+                    <script>
+                        document.getElementById('admissionForm').addEventListener('submit', async function (e) {
+                            e.preventDefault();
+                            const formData = new FormData(e.target);
+                            const data = Object.fromEntries(formData.entries());
+                            try {
+                                const response = await fetch('http://localhost:3000/admission', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(data)
+                                });
+                                if (response.ok) {
+                                    alert('Application submitted successfully!');
+                                } else {
+                                    alert('Error submitting application.');
+                                }
+                            } catch (error) {
+                                alert('An error occurred while submitting the application.');
+                                console.error('Error:', error);
+                            }
+                        });
+                    </script>
+                
 
                 </div> <br><br><br>
                 
